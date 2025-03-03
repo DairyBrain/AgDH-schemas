@@ -1,0 +1,52 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://github.com/DairyBrain/AgDH-data-pipeline-V2/schema_validator.json",
+    "title": "Farm Side Operations",
+    "description": "Schema for validating feeding and milking data from farms",
+    "type": "object",
+    "properties": {
+        "farm_id": {
+            "type": "string",
+            "description": "Unique identifier for the farm"
+        },
+        "data_type": {
+            "type": "string",
+            "enum": ["milk", "feed", "watch"],
+            "description": "Type of data being sent, either 'milk', 'feed' or 'watch'"
+        },
+        "file": {
+            "description": "Schema for the file details",
+            "type": "object",
+            "properties": {
+                "file_size": {
+                    "type": "number",
+                    "description": "Size of the file in bytes"
+                },
+                "file_name": {
+                    "type": "string",
+                    "description": "Name of the file"
+                },
+                "file_type": {
+                    "type": "string",
+                    "description": "MIME type of the file"
+                },
+                "date": {
+                    "description": "Date and time in UTC when the file was created (format: date-time)",
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "required": ["file_size", "file_name", "file_type", "date"]
+        },
+        "date_of_transfer": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time in UTC for the file update "
+        },
+        "description": {
+            "type": "string",
+            "description": "Additional description or notes"
+        }
+    },
+    "required": ["farm_id", "data_type", "file", "date_of_transfer" ]
+}
