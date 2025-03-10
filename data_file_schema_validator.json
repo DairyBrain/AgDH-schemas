@@ -14,29 +14,22 @@
             "enum": ["milk", "feed", "watch"],
             "description": "Type of data being sent, either 'milk', 'feed' or 'watch'"
         },
-        "file": {
-            "description": "Schema for the file details",
-            "type": "object",
-            "properties": {
-                "file_size": {
-                    "type": "number",
-                    "description": "Size of the file in bytes"
-                },
-                "file_name": {
-                    "type": "string",
-                    "description": "Name of the file"
-                },
-                "file_type": {
-                    "type": "string",
-                    "description": "MIME type of the file"
-                },
-                "date": {
-                    "description": "Date and time in UTC when the file was created (format: date-time)",
-                    "type": "string",
-                    "format": "date-time"
-                }
-            },
-            "required": ["file_size", "file_name", "file_type", "date"]
+        "file_name":{
+            "type": "string",
+            "description": "Name of the file"
+        },
+        "file_size": {
+            "type": "number",
+            "description": "Size of the file in bytes"
+        },
+        "file_type": {
+            "type": "string",
+            "description": "MIME type of the file"
+        },
+        "file_last_modified_date": {
+            "description": "Date and time in UTC when the file was last modified (format: date-time)",
+            "type": "string",
+            "format": "date-time"
         },
         "date_of_transfer": {
             "type": "string",
@@ -48,5 +41,5 @@
             "description": "Additional description or notes"
         }
     },
-    "required": ["farm_id", "data_type", "file", "date_of_transfer" ]
+    "required": ["farm_id", "data_type", "file_name", "date_of_transfer" ]
 }
