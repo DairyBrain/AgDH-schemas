@@ -39,6 +39,10 @@
         "description": {
             "type": "string",
             "description": "Additional description or notes"
+        },
+        "checksum": {
+            "type": "string",
+            "description": "A checksum for the file"
         }
     },
     "required": ["farm_id", "data_type", "file_name", "date_of_transfer" ]
